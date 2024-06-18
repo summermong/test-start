@@ -18,6 +18,9 @@ export default function SignupPage() {
     }
   }, [isSuccess]);
 
+  console.log('password: ', password);
+  console.log('confirmPassword: ', confirmPassword);
+
   return (
     <Wrapper>
       <div>
