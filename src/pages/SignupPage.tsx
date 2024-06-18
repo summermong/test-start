@@ -1,21 +1,20 @@
-import { useEffect, useState } from "react";
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
-import { useNavigate } from "react-router-dom";
-import useSignup from "../hooks/useSignup";
-import { Button } from "../stories/Button";
+import { useEffect, useState } from 'react';
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { useNavigate } from 'react-router-dom';
+import useSignup from '../hooks/useSignup';
 
 export default function SignupPage() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const { mutate: handleSignup, isSuccess } = useSignup();
 
   useEffect(() => {
     if (isSuccess) {
-      alert("회원가입 성공");
-      navigate("/login");
+      alert('회원가입 성공');
+      navigate('/login');
     }
   }, [isSuccess]);
 
@@ -76,13 +75,12 @@ export default function SignupPage() {
         </InputSection>
       </div>
 
-      <Button
-        data-cy="signupButton"
-        primary={true}
-        label="회원가입"
+      <SignupButton
         disabled={!email || !password || password != confirmPassword}
         onClick={() => handleSignup({ username: email, password })}
-      />
+      >
+        회원가입
+      </SignupButton>
     </Wrapper>
   );
 }
@@ -96,12 +94,8 @@ const ColumnSpaceBetween = css`
 const Wrapper = styled.div`
   ${ColumnSpaceBetween}
   height: 100%;
-  background-color: var(--white);
+  background-color: #ffffff;
   padding: 0 16px;
-
-  > button {
-    margin-bottom: 24px;
-  }
 `;
 
 const Header = styled.header`
@@ -114,7 +108,7 @@ const Header = styled.header`
 const CloseButton = styled.button``;
 
 const Title = styled.h1`
-  color: var(--primary);
+  color: #1d2745;
 `;
 
 const InputSection = styled.section`
@@ -126,19 +120,19 @@ const Label = styled.label`
   margin-bottom: 16px;
   font-size: 14px;
   line-height: 21px;
-  color: var(--primary);
+  color: #1d2745;
 `;
 
 const Input = styled.input`
   margin-bottom: 24px;
 
   padding-bottom: 8px;
-  border-bottom: 1px solid var(--mono-300);
-  color: var(--mono-300);
+  border-bottom: 1px solid #d6d7d9;
+  color: #d6d7d9;
 
   &:focus {
-    color: var(--secondary);
-    border-bottom: 1px solid var(--secondary);
+    color: #1de5d4;
+    border-bottom: 1px solid #1de5d4;
   }
 `;
 
@@ -146,16 +140,15 @@ const SignupButton = styled.button`
   width: 100%;
   padding: 16px;
   border-radius: 4px;
-  background-color: ${(props) =>
-    props.disabled ? "var(--mono-100)" : "var(--primary)"};
-  color: ${(props) => (props.disabled ? "var(--mono-200)" : "var(--white)")};
+  background-color: ${props => (props.disabled ? '#f1f1f1' : '#1d2745')};
+  color: ${props => (props.disabled ? '#bebebe' : '#ffffff')};
   margin-bottom: 24px;
 `;
 
 const ErrorMessage = styled.h6`
   font-size: 12px;
   line-height: 18px;
-  color: var(--error);
+  color: #d01e1e;
   position: absolute;
   bottom: 0;
 `;

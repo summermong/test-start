@@ -55,8 +55,15 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "jest-environment-jsdom",
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest",
+      "^.+\\.(js|jsx)$": "babel-jest"
+    },
     "testEnvironmentOptions": {
       "url": "https://wanted.byeongjinkang.com"
+    },
+    "moduleNameMapper": {
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.cjs"
     }
   },
   "packageManager": "yarn@4.0.0"
