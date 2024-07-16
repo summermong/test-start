@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import { useNavigate } from 'react-router-dom';
 import useSignup from '../hooks/useSignup';
+import { Button } from 'stories/Button';
 
 export default function SignupPage() {
   const navigate = useNavigate();
@@ -78,12 +79,12 @@ export default function SignupPage() {
         </InputSection>
       </div>
 
-      <SignupButton
+      <Button
         disabled={!email || !password || password != confirmPassword}
         onClick={() => handleSignup({ username: email, password })}
-      >
-        회원가입
-      </SignupButton>
+        primary={true}
+        label="회원가입"
+      />
     </Wrapper>
   );
 }
@@ -99,6 +100,10 @@ const Wrapper = styled.div`
   height: 100%;
   background-color: #ffffff;
   padding: 0 16px;
+
+  > button {
+    margin-bottom: 24px;
+  }
 `;
 
 const Header = styled.header`

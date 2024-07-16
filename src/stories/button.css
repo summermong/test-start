@@ -7,10 +7,8 @@
   display: inline-block;
   line-height: 1;
 }
-
-
 .storybook-button--primary {
-  color: rgb(255, 255, 255);
+  color: rgb(16, 2, 2);
   background-color: var(--primary);
 }
 .storybook-button--secondary {
@@ -19,10 +17,11 @@
   box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
 }
 
-.storybook-button:disabled{
+.storybook-button:disabled {
   background-color: var(--mono-100);
   color: var(--mono-200);
 }
+
 .storybook-button--small {
   font-size: 12px;
   padding: 10px 16px;

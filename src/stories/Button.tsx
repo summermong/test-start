@@ -1,3 +1,4 @@
+import React from 'react';
 import './button.css';
 import '../App.css';
 
@@ -22,9 +23,6 @@ interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
-  /**
-   * Optional disabled
-   */
   disabled?: boolean;
 }
 
@@ -49,8 +47,8 @@ export const Button = ({
         ' '
       )}
       style={{ backgroundColor }}
-      disabled={disabled}
       {...props}
+      disabled={disabled}
     >
       {label}
     </button>

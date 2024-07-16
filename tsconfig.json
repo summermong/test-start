@@ -8,6 +8,7 @@
     "baseUrl": "src",
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": true,
+    "types": ["cypress"],
 
     /* Bundler mode */
     "moduleResolution": "node",
@@ -23,6 +24,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": ["src", "cypress/e2e/2-order/order-cy.ts", "**/*.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
